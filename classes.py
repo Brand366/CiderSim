@@ -30,7 +30,7 @@ class Tree():
 
     def blossom(self):
         for i in range(self.fecundity):
-            self.fruits.append(self.fuit_type())
+            self.fruits.append(self.fruit_type())
 
     def harvest(self):
         crop = self.fruits
@@ -63,3 +63,12 @@ class Cider():
 
     def __repr__(self) -> str:
         return f"a barrel of {max(self.flavour, key=lambda key: self.flavour[key])} cider"
+
+################# Farm classes #################
+
+
+class Farm():
+    orchard = []
+
+    def __init__(self) -> None:
+        pass

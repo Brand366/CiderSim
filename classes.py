@@ -62,13 +62,30 @@ class Cider():
             self.flavour[fruit.flavour] += 1
 
     def __repr__(self) -> str:
-        return f"a barrel of {max(self.flavour, key=lambda key: self.flavour[key])} cider"
+        return f"And you get a barrel of {max(self.flavour, key=lambda key: self.flavour[key])} cider from the fruit!"
 
 ################# Farm classes #################
 
 
 class Farm():
-    orchard = []
-
     def __init__(self) -> None:
-        pass
+        user_input = int(input(
+            "Welcome to my Cider Farm, how many apple trees would you like to plant? "))
+        self.orchard = [AppleTree() for x in range(user_input)]
+
+    def __repr__(self) -> str:
+        return f"The farm currently has {len(self.orchard)} trees planted"
+
+    def spring(self):
+        for tree in self.orchard:
+            tree.blossom()
+        print("The trees have bore fruit!")
+
+    def autumn_harvest(self):
+        autumn_crop = []
+        for tree in self.orchard:
+            autumn_crop.extend(tree.harvest())
+        return autumn_crop
+
+    def brew_cider(self, fruitlist):
+        self.cider = Cider(fruitlist)

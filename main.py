@@ -1,13 +1,6 @@
-from classes import Apple, Pear, AppleTree, PearTree, Cider
+from classes import Farm
 
-trees = [AppleTree() for x in range(5)]
-
-for tree in trees:
-    tree.blossom()
-    print(tree.fruits)
-
-crop = []
-for tree in trees:
-    crop.extend(tree.harvest())
-
-print(Cider(crop))
+farm = Farm()
+farm.spring()
+farm.brew_cider(farm.autumn_harvest())
+print(farm.cider)
